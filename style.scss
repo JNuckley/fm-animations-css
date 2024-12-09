@@ -43,28 +43,29 @@ ul {
   left: 50vw;
   border-radius: 50%;
   background: radial-gradient(circle at bottom right, #fb2324, #fe932a);
-  // animation: slide-right var(--duration) var(--easing) infinite;
   background: red;
-  // transition-property: background, transform;
-  // transition-timing-function: linear, ease-in-out;
-  // transition-duration: 1s, 3s; // first value for background and then transform. Needs unit
-
-  transition: all 2s 0.5s ease-in-out; // property, duration, delay, timing function
-
+  animation-name: move-like-a-square;
+  animation-duration: 4s;
   &:hover {
     background-color: blue;
     transform: scale(2);
   }
 }
 
-@keyframes slide-right {
+@keyframes move-like-a-square {
   0% {
-    transform: translateX(0);
+    transform: none;
+  }
+  25% {
+    transform: translateX(20vw);
   }
   50% {
-    transform: translateX(100%);
+    transform: translateX(20vw) translateY(20vw);
+  }
+  75% {
+    transform: translateX(0vw) translateY(20vw);
   }
   100% {
-    transform: translateX(0);
+    transform: none;
   }
 }
