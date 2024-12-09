@@ -45,26 +45,15 @@ ul {
   background: radial-gradient(circle at bottom right, #fb2324, #fe932a);
   // animation: slide-right var(--duration) var(--easing) infinite;
   background: red;
-  transition-property: background, transform;
-  transition-timing-function: linear, ease-in-out;
-  transition-duration: 1s, 3s; // first value for background and then transform. Needs unit
+  // transition-property: background, transform;
+  // transition-timing-function: linear, ease-in-out;
+  // transition-duration: 1s, 3s; // first value for background and then transform. Needs unit
 
-  // &:before {
-  //   --primary-color: orange;
-  //   content: "";
-  //   position: absolute;
-  //   height: 100%;
-  //   width: 100%;
-  //   left: 0;
-  //   top: 0;
-  //   background-color: var(--primary-color);
-  // }
+  transition: all 2s 0.5s ease-in-out; // property, duration, delay, timing function
 
   &:hover {
     background-color: blue;
-    transform: scale(
-      2
-    ); // scale(2) makes it twice as big. Need to add to transition property
+    transform: scale(2);
   }
 }
 
