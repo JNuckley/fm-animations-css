@@ -44,8 +44,10 @@ ul {
   border-radius: 50%;
   background: radial-gradient(circle at bottom right, #fb2324, #fe932a);
   background: red;
-  animation-name: move-like-a-square;
-  animation-duration: 4s;
+  animation-name: move-like-a-square, red-to-green;
+  animation-duration: 2s;
+  animation-iteration-count: 5;
+  animation-direction: alternate;
   &:hover {
     background-color: blue;
     transform: scale(2);
@@ -53,7 +55,11 @@ ul {
 }
 
 @keyframes move-like-a-square {
-  0% {
+  // 0% {
+  //   transform: none;
+  // }
+  from,
+  to {
     transform: none;
   }
   25% {
@@ -65,7 +71,16 @@ ul {
   75% {
     transform: translateX(0vw) translateY(20vw);
   }
-  100% {
-    transform: none;
+  // 100% {
+  //   transform: none;
+  // }
+}
+
+@keyframes red-to-green {
+  from {
+    background-color: red;
+  }
+  to {
+    background-color: green;
   }
 }
