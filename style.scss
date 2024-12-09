@@ -1,17 +1,31 @@
-@import './styles/base.scss';
+@import "./styles/base.scss";
+
+:root {
+  --duration: 1s;
+  --primary-color: navy;
+  --fg-colour: white;
+  --easing: cubic-bezier(0.5, 0, 0.5, 1);
+}
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   padding: 5vmin;
-  background-color: #f4f4f4;
+  background-color: var(--primary-color);
+  color: var(--fg-colour);
 }
 
 a {
-  color: blue;
+  color: lightblue;
 }
 
 h1 {
   margin: 0;
+  color: var(--fg-colour);
+  transition: all 0.3s;
+}
+
+h1:hover {
+  font-size: 10vw;
 }
 
 small {
@@ -26,6 +40,42 @@ ul {
 .ball {
   height: 5vmin;
   width: 5vmin;
+  left: 50vw;
   border-radius: 50%;
   background: radial-gradient(circle at bottom right, #fb2324, #fe932a);
+  // animation: slide-right var(--duration) var(--easing) infinite;
+  background: red;
+  transition-property: background, transform;
+  transition-timing-function: linear, ease-in-out;
+  transition-duration: 1s, 3s; // first value for background and then transform. Needs unit
+
+  // &:before {
+  //   --primary-color: orange;
+  //   content: "";
+  //   position: absolute;
+  //   height: 100%;
+  //   width: 100%;
+  //   left: 0;
+  //   top: 0;
+  //   background-color: var(--primary-color);
+  // }
+
+  &:hover {
+    background-color: blue;
+    transform: scale(
+      2
+    ); // scale(2) makes it twice as big. Need to add to transition property
+  }
+}
+
+@keyframes slide-right {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
