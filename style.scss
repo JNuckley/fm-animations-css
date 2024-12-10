@@ -44,43 +44,25 @@ ul {
   border-radius: 50%;
   background: radial-gradient(circle at bottom right, #fb2324, #fe932a);
   background: red;
-  animation-name: move-like-a-square, red-to-green;
-  animation-duration: 2s;
-  animation-iteration-count: 5;
-  animation-direction: alternate;
-  &:hover {
-    background-color: blue;
-    transform: scale(2);
+  --duration: 0.2s;
+  --stagger: 0.1s;
+  animation: move-right 0.5s both;
+
+  &:nth-of-type(2) {
+    // animation-delay: var(--duration);
+    animation-delay: calc(var(--duration) - var(--stagger)); //stagger
+  }
+  &:nth-of-type(3) {
+    // animation-delay: calc(var(--duration) * 2);
+    animation-delay: calc(var(--duration) * 2 - var(--stagger)); // stagger
   }
 }
 
-@keyframes move-like-a-square {
-  // 0% {
-  //   transform: none;
-  // }
-  from,
-  to {
+@keyframes move-right {
+  from {
     transform: none;
   }
-  25% {
-    transform: translateX(20vw);
-  }
-  50% {
-    transform: translateX(20vw) translateY(20vw);
-  }
-  75% {
-    transform: translateX(0vw) translateY(20vw);
-  }
-  // 100% {
-  //   transform: none;
-  // }
-}
-
-@keyframes red-to-green {
-  from {
-    background-color: red;
-  }
   to {
-    background-color: green;
+    transform: translateX(25vw);
   }
 }
