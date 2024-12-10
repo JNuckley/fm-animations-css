@@ -46,16 +46,10 @@ ul {
   background: red;
   --duration: 0.2s;
   --stagger: 0.1s;
-  animation: move-right 0.5s both;
-
-  &:nth-of-type(2) {
-    // animation-delay: var(--duration);
-    animation-delay: calc(var(--duration) - var(--stagger)); //stagger
-  }
-  &:nth-of-type(3) {
-    // animation-delay: calc(var(--duration) * 2);
-    animation-delay: calc(var(--duration) * 2 - var(--stagger)); // stagger
-  }
+  --interval: calc(var(--duration) - var(--stagger));
+  animation: move-right var(--duration) calc(var(--interval) * var(--i))
+    // i from style on .ball els
+    both;
 }
 
 @keyframes move-right {
